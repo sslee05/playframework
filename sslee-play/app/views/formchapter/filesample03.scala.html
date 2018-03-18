@@ -1,0 +1,8 @@
+@* filesample03 Template File *@
+
+<form action="@controllers.formchapter.routes.FileController.uploadWithFileList" method="POST" enctype="multipart/form-data">
+	<input type="file" name="fileName[0]">
+	<input type="file" name="fileName[1]">
+	<input type="submit">
+</form>
+

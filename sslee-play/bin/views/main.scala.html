@@ -1,0 +1,32 @@
+@(title: String = "sslee-play")(content: Html)(implicit message:MessagesProvider)
+<!DOCTYPE html>
+<html>
+<head>
+<title>@title</title>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css")'>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("less/layout01.css")'>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("coffee/math.js")"></script>
+</head>
+<body>
+  <div class="screenshot">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="@routes.HomeController.index()">
+          Paper-Clip Company Inc. @message.messages("welcome") 
+          @play.Play.application.configuration.getString("application.name")
+        </a>
+      </div>
+      @templatechapter.navigation()
+    </div>
+
+    <span id="cartSummary" class="label label-info pull-right">
+    </span>
+          
+    <div class="container">
+      @content
+    </div>
+  </div>
+</body>
+</html>

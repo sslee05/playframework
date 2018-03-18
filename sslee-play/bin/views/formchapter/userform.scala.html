@@ -1,0 +1,24 @@
+@* userform Template File *@
+@import models.formchapter.User
+@import models.formchapter.Group
+
+@(userForm: Form[User])(implicit message: MessagesProvider)
+
+@import helper._
+@import views.MyBootstrap._
+
+@main("User createForm") {
+	@helper.form(action = controllers.formchapter.routes.ProductController.createUser, 'id -> "userForm") {
+		@helper.inputText(userForm("userName"),'_showConstraints -> true, '_help -> "필수" ,'_class -> "important", 'size -> 10, '_label -> "회원아이디(*)")
+		@helper.inputText(userForm("realName"), '_label -> "회원명")
+		@helper.inputText(userForm("email"), '_showConstraints -> true, '_help -> "필수" '_label -> "이메일")
+		@helper.repeat(userForm("groups"),min=1) { groupForm =>
+			@helper.inputText(groupForm("groupName"), '_showConstraints -> true, '_help -> "필수" '_label -> "그룹명")
+			@helper.inputText(groupForm("createDate"), '_showConstraints -> true, '_help -> "필수" '_label -> "그룹생성일")
+		}
+		
+		<div class="form-actions">
+  			<button type="submit">Create Product</button>
+  		</div>
+	}
+}

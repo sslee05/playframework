@@ -1,0 +1,11 @@
+@* dubug Template File *@
+@()(implicit messages: Messages)
+@import play.api.Play.current
+
+<footer>
+	lang = @messages.lang.code
+	user = @current.configuration.getString("environment.user")
+	date = @(new java.util.Date().format("yyyy-MM-dd HH:mm"))
+	testconf-user = @current.configuration.getString("testconf.local.user")
+	testconf-pwd = @current.configuration.getString("testconf.local.password")
+</footer>

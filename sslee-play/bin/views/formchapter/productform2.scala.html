@@ -1,0 +1,29 @@
+@* productform2 Template File *@
+@(productForm: Form[models.formchapter.Product])(implicit message: MessagesProvider)
+@import helper._
+@import views.MyBootstrap._
+@*  혹은 화면에서 template implicit 시 @implicitField = @{ FieldConstructor(myFieldConstructorTemplate.f) } *@
+@main("Product createForm") {
+  @helper.form(action = controllers.formchapter.routes.ProductController.create02, 'id -> "productForm") {
+  	@helper.inputText(productForm("name"),'_class -> "important", 'size -> 10)
+  	@helper.textarea(productForm("description"))
+  	@helper.input(productForm("ean")) { (id,name,value,args) =>
+  		<input type="text" name="@name" id="@id" value="@value" @toHtmlArgs(args) />
+  	}
+  	@helper.inputText(productForm("pieces"))
+  	@helper.checkbox(productForm("active"))
+  	@helper.repeat(form("colors"), min=3) { color =>
+  		@helper.inputText(color,'_labal -> "Colors")
+  	}
+  	@productForm.globalError.map { error =>
+  		<span class="error">@error.format</span> 
+  	}
+  	<div class="form-actions">
+  		<button type="submit">Create Product</button>
+  	</div>
+  	<div>
+  		@message.messages("products.form")
+  	</div>
+  }
+}
+

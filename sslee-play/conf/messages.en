@@ -1,0 +1,18 @@
+application.name=hellow this is sslee play2
+
+welcome=welcome to you!
+
+ean=EAN
+name=Name
+description=Description
+products.details = Product: {0}
+
+products.form=Product detail
+products.list.navigation=Proudcts
+products.new=(New)
+products.new.command=New
+products.new.submit=Add
+products.new.success=Successfully added product {0}
+
+validation.erros=Please correct the errors in the form
+validation.ean.duplicate=A product with this EAN code already exists

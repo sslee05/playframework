@@ -1,0 +1,69 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET    /                                            controllers.HomeController.index
+
+#chapter03
+GET    /pickList/index                              controllers.PickListController.index
+GET    /pickList/:warehouse                         controllers.PickListController.preview(warehouse: String)
+GET    /pickList/sendx/:warehouse                   controllers.PickListController.sendAsync(warehouse: String)
+GET    /pickList/backlog/:warehouse                 controllers.PickListController.backlog(warehouse: String) 
+
+#chapter4
+GET    /urltest/$param<\d{5}>                       controllers.chapter04.UrlTestController.reguex(param: Long)
+GET    /urltest/*file                               controllers.chapter04.UrlTestController.photo(file: String)
+
+#slick (chapter05)
+GET    /slick/findbyid/:id                          controllers.slickchapter.ProductController.findById(id: Long)
+GET    /slick/findbyname/:name                      controllers.slickchapter.ProductController.findByName(name: String)
+GET    /slick/addproducts/:ean/:name/:description   controllers.slickchapter.ProductController.addProducts(ean: Long, name:String, description:String)
+GET    /slick/excute/:ean/:name/:description        controllers.slickchapter.ProductController.executeProducts(ean: Long, name:String, description:String)
+GET    /slick/excutefail                            controllers.slickchapter.ProductController.executeFail
+GET    /slick/deleteproduct/:id                     controllers.slickchapter.ProductController.deleteProduct(id: Long)
+
+#tempate (chapter6)
+GET    /template/getCatagories                      controllers.templatechapter.ProductController.getCatagoies
+
+#form (chapter7)
+GET    /chapter7/create                             controllers.formchapter.ProductController.createForm()
+POST   /chapter7/create                             controllers.formchapter.ProductController.create()
+GET    /chapter7/create02                           controllers.formchapter.ProductController.createForm02()
+POST   /chapter7/create02                           controllers.formchapter.ProductController.create02()
+GET    /chapter7/userCreate                         controllers.formchapter.ProductController.createUserForm()
+POST   /chapter7/userCreate                         controllers.formchapter.ProductController.createUser
+
+#form file (chapter7)
+GET    /filesample/view01                           controllers.formchapter.FileController.fileSampleView01
+POST   /filesample/upload01                         controllers.formchapter.FileController.upload
+GET    /filesample/view02                           controllers.formchapter.FileController.fileSampleView02
+POST   /filesample/upload02                         controllers.formchapter.FileController.uploadWithForm
+GET    /filesample/view03                           controllers.formchapter.FileController.uploadFilesView
+POST   /filesample/uploado3                         controllers.formchapter.FileController.uploadWithFileList
+
+# Json (chapter8)
+GET    /jsonsample                                  controllers.jsonchapter.ProductController.index
+GET    /jsonsample/products                         controllers.jsonchapter.ProductController.list
+GET    /jsonsample/details/:ean                     controllers.jsonchapter.ProductController.details(ean: Long)
+PUT    /jsonsample/details/:ean                     controllers.jsonchapter.ProductController.save(ean: Long)
+
+# Authentication
+GET    /auth                                        controllers.authentication.SampleAuthenticationController.index
+#GET    /auth/test01                                 controllers.authentication.SampleAuthenticationController.AuthenticatedAction
+
+# Module Study
+->     /barcode                                     barcode.Routes
+
+# Websocket
+GET   /websocket/status                             controllers.websocketchapter.WebSocketSampleController.statusFeed
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file                                controllers.Assets.versioned(path="/public", file: Asset)
+
+# An example controller showing how to use dependency injection
+#GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+#GET     /message                    controllers.AsyncController.message
+

@@ -1,0 +1,19 @@
+@* content Template File *@
+@(rs: Seq[models.slickchapter.Product])(implicit messages:MessagesApi,lang: Lang)
+@main() {
+  <h2>
+	<ul>
+	  @rs.zipWithIndex.map { case (product,idx) =>
+	    <li>
+	    <h3>@product.name</h3>
+	    <p class="description">@(idx + 1) : @product.description</p>
+	    </li>
+	  }
+	  
+	  @defining(rs.length) { total => 
+	  	<li>총갯수 : @total</li>
+	  	<li>총갯수의 2배 : @(total * 2) </li>
+	  }
+	</ul>	
+  </h2>
+}

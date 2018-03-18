@@ -1,0 +1,9 @@
+@* products Template File *@
+@(products: Seq[Product])
+<dl class="products">
+		@for(product <- products) {
+			<dt>@product.name</dt>
+			<dt>@product.description</dt>
+		}
+</dl>
+

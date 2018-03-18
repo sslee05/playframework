@@ -1,0 +1,3 @@
+# Routes
+GET     /:ean               ssleeakka.barcode.controllers.BarcodeController.getBarcode(ean: Long)
+

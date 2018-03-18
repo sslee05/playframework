@@ -1,0 +1,22 @@
+@* websocketstatus Template File *@
+@()(implicit request: RequestHeader,message:MessagesProvider)
+@main("server status") {
+  <script type="text/javascript">
+    $(function() {
+    
+      var exampleSocket = new WebSocket('ws://localhost:9000@controllers.websocketchapter.routes.WebSocketSampleController.statusFeed()');
+      //exampleSocket.send("Here's some text that the server is urgently awaiting!");
+      exampleSocket.onopen = function (event) {
+        alert('connected');
+        exampleSocket.send("Here's some text that the server is urgently awaiting!"); 
+      };
+      
+      exampleSocket.onmessage = function (event) {
+			  alert(event.data)
+			  $('#load-average').text(event.data);
+			  console.log(event.data);
+			}
+    	})
+  </script>
+  <h1>System load average: <span id="load-average">test</span></h1>
+}

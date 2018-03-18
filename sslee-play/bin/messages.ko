@@ -1,0 +1,29 @@
+application.name=sslee play2 입니다.
+
+welcome=안녕하세요! 반갑습니다.
+
+ean=EAN
+name=상품명
+description=설명
+products.details = 상품: {0}
+
+products.form=상품 상세정보
+products.list.navigation=Products
+products.new=(등록)
+products.new.command=New
+products.new.submit=등록
+products.new.success=정상적으로 상품 {0} 이 등록 되었습니다.
+
+validation.erros=등록화면에 잘 못된 정보가 있습니다.
+validation.ean.duplicate=등록해야하는 상품의 ean 코드는 이미 등록된 정보 입니다.
+
+############### form message ################
+constraint.email= {0}은 email 형식이 아닙니다.
+constraint.required = {0}은 필수 입력 항목 입니다.
+format.numeric = {0} 은 숫자 형식이어야 합니다.
+error.product.error01 = 상품을 활성화 하려면 상세설명을 기입하세요
+
+date.format=Date (YYYY-MM-DD)
+error.date=YYYY-MM-DD 형식에 맞지 않습니다.
+
+error.filemissing=첨부 file를 등록해요.

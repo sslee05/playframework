@@ -1,0 +1,16 @@
+@* filesample02 Template File *@
+@(form: Form[_])(implicit message: MessagesProvider)
+
+@*@import helper._ *@
+@import views.MyBootstrap._
+
+@main("file upload sample02") {
+	@helper.form(action = controllers.formchapter.routes.FileController.uploadWithForm, 'enctype -> "multipart/form-data") {
+		@helper.inputText(form("description"))
+		@helper.inputFile(form("file"))
+		
+		<div class="form-actions">
+  			<button type="submit">Create Product</button>
+  		</div>
+	}
+}

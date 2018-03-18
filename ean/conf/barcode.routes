@@ -1,0 +1,3 @@
+# Routes
+GET     /:ean                       com.github.playforscala.barcodes.Barcodes.barcode(ean: Long) 
+
